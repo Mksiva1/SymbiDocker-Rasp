@@ -2,5 +2,5 @@ FROM balenalib/raspberrypi3-debian:buster
 #RUN apt-get update
 RUN install_packages xc3sprog
 
-COPY top.bit .
-CMD /bin/bash
+COPY top.bit /home/
+CMD ["xc3sprog","-c", "nexys4", "/home/top.bit"]
