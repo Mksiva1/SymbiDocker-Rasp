@@ -4,13 +4,13 @@ CMD /bin/bash
 
 #aggiorno i pacchetti ed installo quelli necessari per l'installazione
 #di miniconda3
-CMD apt-get update && apt-get upgrade && \
-install_packages bzip2 git wget xz-utils xc3sprog
+RUN apt-get update && apt-get upgrade
+RUN install_packages bzip2 git wget xz-utils xc3sprog
 
-CMD wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+RUN wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
 
 # con -b eseguo lo script in modalità batch, senza interazione con l'utente
-CMD bash Miniconda3-latest-Linux-armv7l.sh -b
+RUN bash Miniconda3-latest-Linux-armv7l.sh -b
 
 #ENV PATH=/root/miniconda3/bin:${PATH}
 #RUN export PATH
