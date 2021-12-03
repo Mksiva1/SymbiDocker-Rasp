@@ -1,4 +1,23 @@
-FROM shinyeyes/raspbian-miniconda3
+FROM balenalib/raspberrypi3-debian-python:3-buster
+
+CMD /bin/bash
+
+#aggiorno i pacchetti ed installo quelli necessari per l'installazione
+#di miniconda3
+CMD apt-get update && apt-get upgrade && \
+install_packages bzip2 git wget xz-utils xc3sprog
+
+CMD wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+
+# con -b eseguo lo script in modalità batch, senza interazione con l'utente
+CMD bash Miniconda3-latest-Linux-armv7l.sh -b
+
+ENV PATH=/root/miniconda3/bin:${PATH}
+RUN conda update -y conda
+RUN rm Miniconda3-latest-Linux-x86_64.sh
+
+
+#Da qui inizia lo script di Mattia
 
 #taking the board model as build time argument
 ARG BOARD_MODEL
@@ -13,10 +32,6 @@ ENV FPGA_FAM=xc7
 ENV MODE=null
 ENV TOP_FILE=null
 ENV PRJ_DIR=null
-
-#installing the necessary tools
-RUN apt update && \
-    apt install -y git wget xz-utils xc3sprog
 
 #cloning into symbiflow-examples
 RUN git clone https://github.com/SymbiFlow/symbiflow-examples && \
@@ -47,5 +62,11 @@ ENV PATH="$PATH:/symb/${FPGA_FAM}/install/bin"
 #Copy runner script
 COPY symbiflowrun.py /symb/
 
-#Set entrypoint
-ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "xc7", "python3", "symbiflowrun.py"]
+#manca l'entrypoint solo per test
+
+
+
+
+
+
+

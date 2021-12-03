@@ -2,3 +2,18 @@ FROM balenalib/raspberrypi3-debian-python:3-buster
 
 CMD /bin/bash
 
+#aggiorno i pacchetti ed installo quelli necessari per l'installazione
+#di miniconda3
+CMD apt-get update && apt-get upgrade && \
+install_packages bzip2 git wget xz-utils xc3sprog
+
+CMD wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+
+# con -b eseguo lo script in modalità batch, senza interazione con l'utente
+CMD bash Miniconda3-latest-Linux-armv7l.sh -b
+
+ENV PATH=/root/miniconda3/bin:${PATH}
+RUN conda update -y conda
+RUN rm Miniconda3-latest-Linux-x86_64.sh
+
+
