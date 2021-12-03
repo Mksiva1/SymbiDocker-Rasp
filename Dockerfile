@@ -34,7 +34,7 @@ ENV TOP_FILE=null
 ENV PRJ_DIR=null
 
 #cloning into symbiflow-examples
-RUN git clone https://github.com/SymbiFlow/symbiflow-examples && \
+RUN git clone https://github.com/Mksiva1/symbiflow-examples && \
     cd symbiflow-examples
 
 #creating the conda enviroment
