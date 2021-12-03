@@ -1,0 +1,5 @@
+FROM balenalib/raspberrypi3-debian-python:latest
+
+COPY script.py ./
+
+CMD [ "python", "./script.py" ]
