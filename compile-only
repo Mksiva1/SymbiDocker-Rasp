@@ -1,4 +1,4 @@
-FROM balenalib/raspberrypi3-debian:latest
+FROM balenalib/raspberrypi3-debian:buster
 RUN apt-get update
 RUN install_packages xc3sprog
 
