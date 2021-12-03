@@ -60,7 +60,7 @@ RUN mkdir -p $INSTALL_DIR/${FPGA_FAM}/install && \
 ENV PATH="$PATH:/symb/${FPGA_FAM}/install/bin"
 
 #Copy runner script
-COPY symbiflowrun.py /symb/
+#COPY symbiflowrun.py /symb/
 
 #manca l'entrypoint solo per test
 
