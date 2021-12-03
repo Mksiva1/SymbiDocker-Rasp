@@ -1,0 +1,3 @@
+FROM balenalib/raspberrypi3-debian-python:latest
+
+CMD /bin/bash
