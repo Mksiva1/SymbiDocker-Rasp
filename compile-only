@@ -1,5 +1,5 @@
 FROM balenalib/raspberrypi3-debian:latest
-
+RUN apt-get update
 RUN install_packages xc3sprog
 
 COPY top.bit .
