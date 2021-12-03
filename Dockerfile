@@ -15,7 +15,7 @@ RUN bash Miniconda3-latest-Linux-armv7l.sh -b
 ENV PATH=/root/miniconda3/bin:${PATH}
 RUN export PATH
 RUN conda update -y conda
-RUN rm Miniconda3-latest-Linux-x86_64.sh
+#RUN rm Miniconda3-latest-Linux-x86_64.sh
 
 #Da qui inizia lo script di Mattia
 
